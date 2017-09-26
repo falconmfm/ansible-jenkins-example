@@ -1,4 +1,4 @@
-FROM rhscl/ruby-23-rhel7
+FROM registry.access.redhat.com/rhscl/ruby-23-rhel7
 MAINTAINER Miguel Angel Falcon Munoz ( falc0n.es )
 
 RUN rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
