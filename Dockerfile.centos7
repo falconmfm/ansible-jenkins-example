@@ -23,15 +23,21 @@ RUN mkdir /var/run/sshd
 RUN yum -y install wget
 
 # Descarga JDK 8
-RUN wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-$BUILD_VERSION/jdk-$JAVA_VERSION-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm
+ 
+RUN cd /opt ; wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz"
+RUN xzf jdk-8u144-linux-x64.tar.gz 
 
-RUN yum -y install /tmp/jdk-8-linux-x64.rpm
+RUN alternatives --install /usr/bin/java java /opt/jdk1.8.0_144/bin/java 2
+RUN alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_144/bin/jar 2
+RUN alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_144/bin/javac 2
+RUN alternatives --set jar /opt/jdk1.8.0_144/bin/jar
+RUN alternatives --set javac /opt/jdk1.8.0_144/bin/javac
 
-RUN alternatives --install /usr/bin/java jar /usr/java/latest/bin/java 200000
-RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 200000
-RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
+#RUN alternatives --install /usr/bin/java jar /usr/java/latest/bin/java 200000
+#RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 200000
+#RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
 
-ENV JAVA_HOME /usr/java/latest
+ENV JAVA_HOME /opt/jdk1.8.0_144/
 
 RUN useradd jenkins
 # This is not safe, this is a test
