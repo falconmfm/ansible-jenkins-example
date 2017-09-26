@@ -1,9 +1,9 @@
 FROM registry.access.redhat.com/rhscl/ruby-23-rhel7
 MAINTAINER Miguel Angel Falcon Munoz ( falc0n.es )
 
-RUN rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
-RUN yum -y update
-RUN yum -y install ansible
+RUN sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
+RUN sudo yum -y update
+RUN sudo yum -y install ansible
 RUN yum -y install python-pip
 RUN pip install https://github.com/willthames/ansible-lint/archive/master.zip
 RUN gem install serverspec
