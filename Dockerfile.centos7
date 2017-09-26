@@ -25,7 +25,7 @@ RUN yum -y install wget
 # Descarga JDK 8
  
 RUN cd /opt ; wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz"
-RUN xzf jdk-8u144-linux-x64.tar.gz 
+RUN tar xzf jdk-8u144-linux-x64.tar.gz 
 
 RUN alternatives --install /usr/bin/java java /opt/jdk1.8.0_144/bin/java 2
 RUN alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_144/bin/jar 2
