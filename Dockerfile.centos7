@@ -12,6 +12,7 @@ RUN pip install --upgrade pip
 RUN pip install https://github.com/willthames/ansible-lint/archive/master.zip
 
 RUN yum install -y ruby ruby-rdoc ruby-devel rubygems
+REM yum install -y sudo
 RUN gem install serverspec
 RUN gem install rake
 
