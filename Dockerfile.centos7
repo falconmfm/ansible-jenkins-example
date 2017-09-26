@@ -1,8 +1,10 @@
 FROM centos/ruby-23-centos7
 MAINTAINER Miguel Angel Falcon Munoz ( falc0n.es )
 
-RUN sudo rm -rf /var/lib/rpm/.rpm.lock
-RUN sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
+USER 0
+
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+
 RUN yum -y update
 RUN yum -y install ansible
 RUN yum -y install python-pip
