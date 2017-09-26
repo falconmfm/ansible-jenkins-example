@@ -42,5 +42,5 @@ ENV JAVA_HOME /opt/jdk1.8.0_144/
 RUN useradd jenkins
 # This is not safe, this is a test
 RUN echo "jenkins:xt4dFV4WdkURU3v8TRWu" | chpasswd
-RUN echo "jenkins    ALL=NOPASSWD: ALL" >> /etc/sudoer.d/10_jenkins
+RUN echo "jenkins    ALL=NOPASSWD: ALL" >> /etc/sudoers.d/10_jenkins
 
