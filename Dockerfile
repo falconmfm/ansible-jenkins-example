@@ -15,7 +15,7 @@ RUN gem install rake
 # Required for Docker jenkins plugin
 RUN apt-get -y install openssh-server
 RUN mkdir /var/run/sshd
-RUN apt-get -y install openjdk-6-jdk
+RUN apt-get -y install openjdk-8-jdk
 RUN useradd jenkins
 # This is not safe, this is a test
 RUN echo "jenkins:xt4dFV4WdkURU3v8TRWu" | chpasswd
